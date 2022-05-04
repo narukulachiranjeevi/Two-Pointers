@@ -1,0 +1,21 @@
+
+
+
+class Solution {
+    public int maxOperations(int[] nums, int k) {
+        Arrays.sort(nums);
+        int pt1=0,pt2=nums.length-1;
+        int count=0;
+        while(pt1<pt2){
+            int sum = nums[pt1]+nums[pt2];
+            if(sum>k) pt2--;
+            else if(sum<k) pt1++;
+            else{
+                count++;
+                pt1++;
+                pt2--;
+            }
+        }
+        return count;
+    }
+}
